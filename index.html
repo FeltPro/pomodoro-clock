@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://kit.fontawesome.com/ff73208b25.js" crossorigin="anonymous"></script>
+    <script defer src="script.js"></script>
+    <script defer src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <audio id="myAudio">
+        <source src="/alarm-clock-01.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>25 + 5 Clock</h1>
+    <div class="times">
+        <div id="break-label"  class="break-length">
+            <div>Break Length</div>
+            <div class="controls">
+                <div><i  id="break-decrement" class="fas fa-arrow-down"></div></i><div><span id="break-length">5</span></div><div><i id="break-increment" class="fas fa-arrow-up"></i></div>
+            </div>
+        </div>
+        <div id="session-label" class="session-length">
+            <div>Session Length</div>
+            <div class="controls">
+                <div><i  id="session-decrement" class="fas fa-arrow-down"></div></i><div><span id="session-length">25</span></div><div><i id="session-increment" class="fas fa-arrow-up"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="timer-container">
+        <h3> <span id="timer-label">Session</span></h3>
+        <div id="time-left" class="time-display"><span id="minutes-slot">25</span id="minutes-slot">:<span id="seconds-slot">00</span></div>
+    </div>
+    <div class="controls-section">
+        <div id="start-stop" class="start-stop"><i class="fas fa-play fa-2x"></i>
+            <i class="fas fa-pause fa-2x"></i>
+        </div>
+        <div id="refresh"><i class="fa fa-refresh fa-2x"></i></div>
+    </div>
+</body>
+</html>
