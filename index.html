@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/ff73208b25.js" crossorigin="anonymous"></script>
     <script defer src="script.js"></script>
     <script defer src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
@@ -8,10 +11,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <audio id="myAudio">
-        <source src="/alarm-clock-01.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
     <title>Document</title>
 </head>
 <body>
@@ -36,10 +35,12 @@
         <div id="time-left" class="time-display"><span id="minutes-slot">25</span id="minutes-slot">:<span id="seconds-slot">00</span></div>
     </div>
     <div class="controls-section">
-        <div id="start-stop" class="start-stop"><i class="fas fa-play fa-2x"></i>
+        <div class="play-pause" id="start-stop" class="start-stop">
+            <i class="fas fa-play fa-2x"></i>
             <i class="fas fa-pause fa-2x"></i>
         </div>
         <div id="refresh"><i class="fa fa-refresh fa-2x"></i></div>
     </div>
+    <div id="vol-control" class="vol-control"><i class="fas fa-volume-high fa-2x"></i><i class="fas fa-volume-xmark fa-2x hide"></i></div>
 </body>
 </html>
