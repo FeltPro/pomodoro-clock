@@ -27,6 +27,7 @@ let timeRemainingSession = 60 * sessionLength
 let timeRemainingBreak = 60 * breakLength
 let clearTheTimeout
 let clearTheSecondTimeout
+let clearTheCascade
 let sessionPeriod = false
 let musicToggle = 0
 
@@ -119,6 +120,7 @@ function reset() {
 
 
 function sessionCountdown() { 
+        backgroundCascade() 
         timerContainer.style.backgroundColor = "orange"
         let mins = Math.floor(timeRemainingSession / 60)
         let secs = timeRemainingSession % 60
@@ -127,8 +129,7 @@ function sessionCountdown() {
         minutesSlot.innerText = mins;
         secondsSlot.innerText = secs;
         timeRemainingSession--
-        console.log(timeRemainingSession)
-        if (timeRemainingSession <= -1) {
+        if (timeRemainingSession < -1) {
             timeRemainingBreak = 60 * breakLength
             beethoven.pause()
             bell.play()
@@ -149,7 +150,6 @@ function breakCountdown() {
     minutesSlot.innerText = mins;
     secondsSlot.innerText = secs;  
     timeRemainingBreak--
-    console.log(timeRemainingBreak)
     if (timeRemainingBreak < -1) {
         timeRemainingSession = 60 * sessionLength
         bell.play()
@@ -163,6 +163,7 @@ function breakCountdown() {
 function pause() {
     clearTimeout(clearTheTimeout)
     clearTimeout(clearTheSecondTimeout)
+    clearTimeout(clearTheCascade)
     timerOn = 0
     beethoven.pause()
 
@@ -185,3 +186,19 @@ volControl.addEventListener('click', ()=> {
     volumeXmark.classList.toggle('hide')
     volHigh.classList.toggle('hide')
 }) 
+
+
+function backgroundCascade() {
+    let cascadeTimer = timeRemainingSession
+    cascadeTimer--
+    let cascade = Math.ceil(cascadeTimer / (sessionLength * 60) * 100)
+    timerContainer.style.setProperty('--height', cascade)
+    clearTheCascade = setTimeout(backgroundCascade, 6000)
+    if (cascadeTimer < 0) {
+        pauseCascade()
+    }
+}
+
+function pauseCascade() {
+    clearTimeout(clearTheCascade)
+}
